@@ -10,7 +10,7 @@ const FrontPage = () => {
 
     return (
         <>
-            {/* <ThemeProvider theme={ColorTheme}> */}
+            <ThemeProvider theme={ColorTheme}>
             <Box className="front-page">
                 <Box className="map">
                     <MapContainer center={[31.9510, 34.8881]} zoom={8} scrollWheelZoom={true}>
@@ -21,7 +21,7 @@ const FrontPage = () => {
                 </Box>
             </Box>
             <BottomNav />
-            {/* </ThemeProvider > */}
+            </ThemeProvider >
         </>
     )
 }

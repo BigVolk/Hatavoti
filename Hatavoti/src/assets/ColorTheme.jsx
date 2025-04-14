@@ -10,7 +10,7 @@ const ColorTheme = createTheme({
       main: '#f3ff00',
     },
     text: {
-      primary: 'rgba(0,0,0,0.87)',
+      primary: 'rgba(0, 0, 0, 0.87)',
     },
   },
   typography: {
