@@ -7,7 +7,9 @@ const FrontPage = () => {
     return(
         <>
             <Box className="front-page">
-                Map
+                <Box className="map">
+                    Map
+                </Box>
             </Box>
             <BottomNav />
         </>

@@ -1,4 +1,5 @@
 .bottom-nav{
-    position: sticky;
-    bottom: 1000px;   
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
 }
