@@ -6,24 +6,42 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import ListIcon from '@mui/icons-material/List';
 import AddIcon from '@mui/icons-material/Add';
+import ColorTheme from '../../assets/ColorTheme';
+import { ThemeProvider } from '@emotion/react'
 
 
 const BottomNav = () => {
 
+    const actions = [
+        {
+            label: 'מפה',
+            icon: <MapIcon />
+        },
+        {
+            label: 'רשימה',
+            icon: <ListIcon />
+        },
+        {
+            label: 'הוסף',
+            icon: <AddIcon />
+        },
+
+    ]
+
     return (
         <>
-            <Box className="bottom-nav">
-                <BottomNavigation
-                    showLabels
-                    onChange={(event, newValue) => {
-                        console.log(newValue)
-                    }}
-                >
-                    <BottomNavigationAction label="מפה" icon={<MapIcon />} />
-                    <BottomNavigationAction label="רשימה" icon={<ListIcon />} />
-                    <BottomNavigationAction label="הוסף" icon={<AddIcon />} />
-                </BottomNavigation>
-            </Box>
+            <ThemeProvider theme={ColorTheme}>
+                <Box className="bottom-nav">
+                    <BottomNavigation
+                        showLabels
+                        onChange={(_, newValue) => {
+                            console.log(newValue)
+                        }}
+                    >
+                        {actions.map(action => <BottomNavigationAction label={action.label} icon={action.icon} />)}
+                    </BottomNavigation>
+                </Box>
+            </ThemeProvider>
         </>
     )
 }
