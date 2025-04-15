@@ -1,26 +1,31 @@
 import { Box, InputAdornment, TextField } from "@mui/material"
-
+import SearchIcon from '@mui/icons-material/Search';
+import hatavotiLogo from '../../assets/hatavoti-black.png'
 import "./Topbar.css"
 
 const Topbar = () => {
+
     return (
         <>
-            <Box className="top-bar">
-                <TextField
-                placeholder={"חיפוש"}
-                variant="standard"
-                sx={{
-                    backgroundColor: 'green',
-                    borderRadius: '30px',
-                    padding: '0 20px'
-                }}
-                slotProps={{    
-                    input: {
-                        startAdornment: <InputAdornment position="start">s</InputAdornment>,
-                        endAdornment: <InputAdornment position="end">e</InputAdornment>
-                    }
-                }}
-                />
+            <Box className="around-top-bar">
+                <Box className="top-bar">
+                    <TextField
+                        color="primary"
+                        className="text-field"
+                        placeholder={"חיפוש"}
+                        variant="standard"
+                        sx={{
+                            backgroundColor: "#808000",
+                            padding: '0 15px',
+                        }}
+                        slotProps={{
+                            input: {
+                                startAdornment: <InputAdornment position="start"><SearchIcon /></InputAdornment>,
+                                endAdornment: <InputAdornment position="end"><img className="hatavoti-logo" src={hatavotiLogo} /></InputAdornment>
+                            }
+                        }}
+                    />
+                </Box>
             </Box>
         </>
     )

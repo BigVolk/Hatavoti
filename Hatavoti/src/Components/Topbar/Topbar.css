@@ -1,8 +1,17 @@
-.top-bar{
+.hatavoti-logo{
+    height: 30px;
+}
+
+.around-top-bar{
+    width: 100vw;
     position: absolute;
-    top: 10px;
     display: flex;
     flex-direction: row;
     z-index: 999;
-    right: 10vw;
+    top: 20px;
+    justify-content: center;
+}
+
+.text-field{
+    border-radius: 30px;
 }
