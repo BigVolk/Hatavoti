@@ -7,14 +7,27 @@ import "./Topbar.css"
 const Topbar = () => {
 
     const [searchText, setSearchText] = useState("")
+    const [isFullScreen, setIsFullScreen] = useState(false)
 
     return (
         <>
-            <Box className="around-top-bar">
+            <Box className="around-top-bar"
+                sx= {isFullScreen ? 
+                    {
+                        height: '100vh',
+                        zIndex: 9999,
+                        backgroundColor: 'green'
+                    } :
+                    {
+                        height: '20vh',
+                        zIndex: 1000,
+                    }
+                }
+            >
                 <Box className="top-bar">
                     <TextField
                         onChange={(element) => console.log(element.target.value)}
-                        onClick={() => console.log("clicked")}
+                        onClick={() => setIsFullScreen(!isFullScreen)}
                         type="text"
                         className="text-field"
                         placeholder={"חיפוש"}
