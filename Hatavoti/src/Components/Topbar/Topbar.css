@@ -3,15 +3,21 @@
 }
 
 .around-top-bar{
-    width: 100vw;
     position: absolute;
+    width: 100vw;
+    height: 10vh;
     display: flex;
     flex-direction: row;
-    z-index: 999;
-    top: 20px;
+    z-index: 1000;
     justify-content: center;
+    /* background-color: blue; */
 }
 
 .text-field{
     border-radius: 30px;
+}
+
+.top-bar{
+    position: absolute;
+    top: 20px;
 }
