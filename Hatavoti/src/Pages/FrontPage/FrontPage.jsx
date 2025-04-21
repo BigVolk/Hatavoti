@@ -15,7 +15,7 @@ const FrontPage = () => {
             <ThemeProvider theme={ColorTheme}>
                 <Box className="front-page">
                     <Box className="map">
-                        <MapContainer center={[31.9510, 34.8881]} zoom={8} scrollWheelZoom={true}>
+                        <MapContainer center={[31.9510, 34.8881]} zoom={8} scrollWheelZoom={true} zoomControl={false}>
                             <TileLayer
                                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             />

@@ -6,42 +6,44 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import ListIcon from '@mui/icons-material/List';
 import AddIcon from '@mui/icons-material/Add';
-import ColorTheme from '../../assets/ColorTheme';
-import { ThemeProvider } from '@emotion/react'
-
 
 const BottomNav = () => {
+
+    const iconStyle = {
+        color: "white"
+    }
 
     const actions = [
         {
             label: 'מפה',
-            icon: <MapIcon />
+            icon: <MapIcon sx={iconStyle}/>
         },
         {
             label: 'רשימה',
-            icon: <ListIcon />
+            icon: <ListIcon sx={iconStyle}/>
         },
         {
             label: 'הוסף',
-            icon: <AddIcon />
+            icon: <AddIcon sx={iconStyle}/>
         },
 
     ]
 
     return (
         <>
-            <ThemeProvider theme={ColorTheme}>
-                <Box className="bottom-nav">
-                    <BottomNavigation
-                        showLabels
-                        onChange={(_, newValue) => {
-                            console.log(newValue)
-                        }}
-                    >
-                        {actions.map(action => <BottomNavigationAction label={action.label} icon={action.icon} />)}
-                    </BottomNavigation>
-                </Box>
-            </ThemeProvider>
+            <Box className="bottom-nav">
+                <BottomNavigation
+                    sx={{
+                        backgroundColor: "#808000",
+                    }}
+                    showLabels
+                    onChange={(_, newValue) => {
+                        console.log(newValue)
+                    }}
+                >
+                    {actions.map(action => <BottomNavigationAction label={action.label} icon={action.icon} sx={iconStyle}/>)}
+                </BottomNavigation>
+            </Box>
         </>
     )
 }

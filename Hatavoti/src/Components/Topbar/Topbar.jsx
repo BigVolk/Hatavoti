@@ -10,6 +10,8 @@ const Topbar = () => {
             <Box className="around-top-bar">
                 <Box className="top-bar">
                     <TextField
+                        onSelect={() => console.log("selected")}
+                        onEnded={() => console.log("abort")}
                         color="primary"
                         className="text-field"
                         placeholder={"חיפוש"}
