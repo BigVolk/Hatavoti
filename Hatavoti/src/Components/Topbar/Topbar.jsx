@@ -106,29 +106,30 @@ const Topbar = () => {
                         }}
                     />
                 </Box> */}
-                    <Box sx={{
-                        display: 'inline-block',
-                        height: '60px',
-                        overflow: "auto",
-                        whiteSpace: "nowrap",
-                        }}>
-                        {pillOptions.map(element => {
-                            return(
-                                <Button
+                <Box sx={{
+                    display: 'inline-block',
+                    height: '60px',
+                    overflow: "auto",
+                    whiteSpace: "nowrap",
+                    scrollbarWidth: 'none',
+                }}>
+                    {pillOptions.map(element => {
+                        return (
+                            <Button
                                 variant="solid"
-                                endIcon= {element.icon}
+                                endIcon={element.icon}
                                 sx={{
                                     fontSize: '17px',
                                     margin: '10px 5px',
                                     backgroundColor: '#808000',
-                                    borderRadius: '20px'
-                                    }}
-                                    >
+                                    borderRadius: '20px',
+                                }}
+                            >
                                 {element.title}
                             </Button>
-                            )
-                        })}
-                    </Box>
+                        )
+                    })}
+                </Box>
             </Box>
         </>
     )
