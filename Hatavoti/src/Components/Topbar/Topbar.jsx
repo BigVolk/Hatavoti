@@ -1,12 +1,13 @@
 import { Box, Button, InputAdornment, TextField } from "@mui/material"
 import SearchIcon from '@mui/icons-material/Search';
 import hatavotiLogo from '../../assets/hatavoti-black.png'
-import { useState } from "react";
+import { use, useState } from "react";
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import CheckroomIcon from '@mui/icons-material/Checkroom';
 import LunchDiningIcon from '@mui/icons-material/LunchDining';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import PillOptions from "../PillOptions/PillOptions";
 import "./Topbar.css"
 
 
@@ -125,27 +126,7 @@ const Topbar = () => {
                     whiteSpace: "nowrap",
                     scrollbarWidth: 'none',
                 }}>
-                    {pillOptions.map((element, index) => {
-                        return (
-                            <Button
-                                onClick={() => {
-                                    const tempPillOptions = pillOptions.slice()
-                                    tempPillOptions[index].isClicked = !pillOptions[index].isClicked
-                                    setPillOptions(tempPillOptions)
-                                }}
-                                variant="solid"
-                                endIcon={element.icon}
-                                sx={{
-                                    fontSize: '17px',
-                                    margin: '10px 5px',
-                                    backgroundColor: element.isClicked ? "#505005":"#808000",
-                                    borderRadius: '20px',
-                                }}
-                            >
-                                {element.title}
-                            </Button>
-                        )
-                    })}
+                    {!isFullScreen ? <PillOptions options={pillOptions} setPillOptions = {setPillOptions}/>: <></>}
                 </Box>
             </Box>
         </>
