@@ -12,48 +12,58 @@ import "./Topbar.css"
 
 const Topbar = () => {
 
-    const pillOptions = [
+    const [pillOptions, setPillOptions] = useState([
         {
             title: 'מסעדה',
-            icon: <RestaurantIcon />
+            icon: <RestaurantIcon />,
+            isClicked: false,
         },
         {
             title: 'בגדים',
-            icon: <CheckroomIcon />
+            icon: <CheckroomIcon />,
+            isClicked: false,
         },
         {
             title: 'המבורגר',
-            icon: <LunchDiningIcon />
+            icon: <LunchDiningIcon />,
+            isClicked: false,
         },
         {
             title: 'בידור',
-            icon: <TheaterComedyIcon />
+            icon: <TheaterComedyIcon />,
+            isClicked: false,
         },
         {
             title: 'כושר',
-            icon: <FitnessCenterIcon />
+            icon: <FitnessCenterIcon />,
+            isClicked: false,
         },
         {
             title: 'מסעדה',
-            icon: <RestaurantIcon />
+            icon: <RestaurantIcon />,
+            isClicked: false,
         },
         {
             title: 'בגדים',
-            icon: <CheckroomIcon />
+            icon: <CheckroomIcon />,
+            isClicked: false,
         },
         {
             title: 'המבורגר',
-            icon: <LunchDiningIcon />
+            icon: <LunchDiningIcon />,
+            isClicked: false,
         },
         {
             title: 'בידור',
-            icon: <TheaterComedyIcon />
+            icon: <TheaterComedyIcon />,
+            isClicked: false,
         },
         {
             title: 'כושר',
-            icon: <FitnessCenterIcon />
+            icon: <FitnessCenterIcon />,
+            isClicked: false,
         }
-    ]
+    ])
     const [searchText, setSearchText] = useState("")
     const [isFullScreen, setIsFullScreen] = useState(false)
 
@@ -78,7 +88,7 @@ const Topbar = () => {
                     }
                 }
             >
-                {/* <Box className="top-bar">
+                <Box className="top-bar">
                     <TextField
                         onChange={(element) => setSearchText(element.target.value)}
                         onClick={() => setIsFullScreen(!isFullScreen)}
@@ -87,10 +97,10 @@ const Topbar = () => {
                         placeholder={"חיפוש"}
                         variant="standard"
                         sx={{
+                            backgroundColor: "#808000",
                             display: 'flex',
                             justifyContent: 'center',
                             direction: 'rtl',
-                            backgroundColor: "#808000",
                             padding: '0 15px',
                             height: '50px',
                             "& .MuiInputBase-input": {
@@ -105,23 +115,30 @@ const Topbar = () => {
                             }
                         }}
                     />
-                </Box> */}
+                </Box>
                 <Box sx={{
-                    display: 'inline-block',
+                    position: 'absolute',
+                    width: '100vw',
+                    top: '75px',
                     height: '60px',
                     overflow: "auto",
                     whiteSpace: "nowrap",
                     scrollbarWidth: 'none',
                 }}>
-                    {pillOptions.map(element => {
+                    {pillOptions.map((element, index) => {
                         return (
                             <Button
+                                onClick={() => {
+                                    const tempPillOptions = pillOptions.slice()
+                                    tempPillOptions[index].isClicked = !pillOptions[index].isClicked
+                                    setPillOptions(tempPillOptions)
+                                }}
                                 variant="solid"
                                 endIcon={element.icon}
                                 sx={{
                                     fontSize: '17px',
                                     margin: '10px 5px',
-                                    backgroundColor: '#808000',
+                                    backgroundColor: element.isClicked ? "#505005":"#808000",
                                     borderRadius: '20px',
                                 }}
                             >
